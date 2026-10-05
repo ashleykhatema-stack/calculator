@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue calculator</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <div id="calculator">
+
+        <div class=" shadow-xl shadow-orange-300 rounded-lg mx-160 my-30 flex bg-amber-500/60 justify-center 
+        item-center h-140 w-100 border-5 border-amber-500">
+
+            <div class="mt-2 py-2 text-3xl">
+
+                <h1 class="font-semibold mb-2 text-amber-950">CASIO</h1>
+
+                <!-- INPUTBTN -->
+                <input v-model="barInput"
+                    class="text-right bg-amber-100 border-2 border-amber-800/80 rounded-lg h-15 text-amber-950/500"
+                    type="number" placeholder="0"> 
+
+                 <!-- CALCULATORBTNS    -->
+                <div class="flex justify-between ">
+                    <button @click="ac('ac')"
+                        class="bg-orange-500 py-2 h-15 w-43 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">AC</button>
+                    <button @click="btn('%')"
+                        class="bg-orange-500 py-2 h-15 w-20 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">%</button>
+                    <button @click="btn('+')"
+                        class="bg-amber-700 py-2 h-15 w-20 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">+</button>
+                </div>
+                <div class=" flex justify-between">
+                    <button @click="num('7')"
+                        class="bg-amber-500 py-2 h-15 w-20 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">7</button>
+                    <button @click="num('8')"
+                        class="bg-amber-500 py-2 h-15 w-20 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">8</button>
+                    <button @click="num('9')"
+                        class="bg-amber-500 py-2 h-15 w-20 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">9</button>
+                    <button @click="btn('-')"
+                        class="bg-amber-700 py-2 h-15 w-20 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">-</button>
+                </div>
+                <div class="flex justify-between">
+                    <button @click="num('4')"
+                        class="bg-amber-500 py-2 h-15 w-20 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">4</button>
+                    <button @click="num('5')"
+                        class="bg-amber-500 py-2 h-15 w-20 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">5</button>
+                    <button @click="num('6')"
+                        class="bg-amber-500 py-2 h-15 w-20 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">6</button>
+                    <button @click="btn('*')"
+                        class="bg-amber-700 py-2 h-15 w-20 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">*</button>
+                </div>
+                <div class="flex justify-between">
+                    <button @click="num('3')"
+                        class="bg-amber-500 py-2 h-15 w-20 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">3</button>
+                    <button @click="num('2')"
+                        class="bg-amber-500 py-2 h-15 w-20 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">2</button>
+                    <button @click="num('1')"
+                        class="bg-amber-500 py-2 h-15 w-20 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">1</button>
+                    <button @click="btn('/')"
+                        class="bg-amber-700 py-2 h-15 w-20 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">/</button>
+                </div>
+                <div class="flex justify-between">
+                    <button @click="num('0')"
+                        class="bg-amber-500 py-2 h-15 w-43 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">0</button>
+                    <button @click="btn('.')"
+                        class="bg-amber-500 py-2 h-15 w-20 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">.</button>
+                    <button @click="equal()"
+                        class="bg-orange-500 py-2 h-15 w-20 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">=</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    barInput: "",
+                    bar: "",
+                    Operator: "",
+                    FirstNUM: 0,
+                    second: 0,
+                    success: "",
+                }
+            },
+            methods: {
+                // NUMBERSBTN
+                num(value) {
+                    this.bar += value;
+                    this.barInput = this.bar;
+                },
+
+                // BTNOPERATOR
+                btn(op) {
+
+                    if (this.Operator === "" && this.bar !== "") {
+                        this.FirstNUM = parseFloat(this.bar);
+
+                    } else {
+
+                        this.equal();
+
+                    }
+                    this.Operator = op;
+                    this.bar = "";
+                    this.barInput = this.FirstNUM;
+                },
+                // DELETEBTN
+                ac() {
+                    this.barInput = "";
+                    this.bar = "";
+                    this.FirstNUM = "";
+                    this.Operator = "";
+                    this.second = "";
+                },
+                // EQUALBTN
+                equal() {
+
+                    this.second = parseFloat(this.bar);
+
+                    if (this.Operator === "/" && this.second === 0) {
+                        this.barInput = "Error";
+                        return true;
+                    }
+
+                    if (this.second) {
+
+                        switch (this.Operator) {
+
+                            case "+":
+
+                                this.FirstNUM += this.second;
+                                break;
+
+                            case "-":
+
+                                this.FirstNUM -= this.second;
+                                break;
+
+                            case "*":
+
+                                this.FirstNUM *= this.second;
+                                break;
+
+                            case "/":
+                                this.FirstNUM /= this.second;
+                                break;
+
+                            default:
+                                this.FirstNUM = this.second;
+
+
+                        }
+                        this.bar = "";
+                        this.barInput = this.FirstNUM;
+                        return true;
+                    }
+                },
+                // EQAUL
+                clickequal() {
+                    this.success = this.equal();
+                    if (!this.success) {
+                        return;
+                    }
+                    this.Operator = "";
+
+                }
+            },
+
+        }).mount('#calculator');
+
+    </script>
+
+</body>
+
+</html>
