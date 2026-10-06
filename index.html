@@ -11,72 +11,75 @@
 
 <body>
     <div id="calculator">
-        <div class="flex justify-center">
+        <div class="min-w-2xl">
 
-            <div class=" shadow-xl shadow-orange-300 rounded-lg my-30  bg-amber-500/60 flex justify-center 
-        item-center h-140 w-100 border-5 border-amber-500">
+            <div class="flex justify-center ">
 
-                <div class="mt-2 py-2 text-3xl">
+                <div class=" shadow-xl shadow-orange-300 rounded-lg my-30  bg-amber-500/60 flex justify-center 
+            item-center h-140 w-100 border-5 border-amber-500">
 
-                    <h1 class="font-semibold mb-2 text-amber-950">ASHIE</h1>
+                    <div class="mt-2 py-2 text-3xl">
 
-                    <!-- INPUTBTN -->
-                    <input v-model="barInput"
-                        class="text-right bg-amber-100 border-2  w-85 border-amber-800/80 rounded-lg h-15 text-amber-950/500"
-                        type="text" placeholder="0">
+                        <h1 class="font-semibold mb-2 text-amber-950">ASHIE</h1>
 
-                    <!-- CALCULATORBTNS    -->
-                    <div class="flex justify-between ">
-                        <button @click="ac('ac')"
-                            class="bg-orange-500 py-2 h-15 w-35 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">AC</button>
-                        <button @click="btn('%')"
-                            class="bg-orange-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">%</button>
-                        <button @click="btn('+')"
-                            class="bg-amber-700 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">+</button>
-                    </div>
-                    <div class=" flex justify-between">
-                        <button @click="num('7')"
-                            class="bg-amber-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">7</button>
-                        <button @click="num('8')"
-                            class="bg-amber-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">8</button>
-                        <button @click="num('9')"
-                            class="bg-amber-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">9</button>
-                        <button @click="btn('-')"
-                            class="bg-amber-700 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">-</button>
-                    </div>
-                    <div class="flex justify-between">
-                        <button @click="num('4')"
-                            class="bg-amber-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">4</button>
-                        <button @click="num('5')"
-                            class="bg-amber-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">5</button>
-                        <button @click="num('6')"
-                            class="bg-amber-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">6</button>
-                        <button @click="btn('*')"
-                            class="bg-amber-700 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">*</button>
-                    </div>
-                    <div class="flex justify-between">
-                        <button @click="num('3')"
-                            class="bg-amber-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">3</button>
-                        <button @click="num('2')"
-                            class="bg-amber-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">2</button>
-                        <button @click="num('1')"
-                            class="bg-amber-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">1</button>
-                        <button @click="btn('/')"
-                            class="bg-amber-700 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">/</button>
-                    </div>
-                    <div class="flex justify-between">
-                        <button @click="num('0')"
-                            class="bg-amber-500 py-2 h-15 w-35 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">0</button>
-                        <button @click="btn('.')"
-                            class="bg-amber-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">.</button>
-                        <button @click="equal()"
-                            class="bg-orange-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">=</button>
+                        <!-- INPUTBTN -->
+                        <input v-model="barInput"
+                            class="text-right bg-amber-100 border-2  w-85 border-amber-800/80 rounded-lg h-15 text-amber-950/500"
+                            type="text" placeholder="0">
+
+                        <!-- CALCULATORBTNS    -->
+                        <div class="flex justify-between ">
+                            <button @click="ac('ac')"
+                                class="bg-orange-500 py-2 h-15 w-35 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">AC</button>
+                            <button @click="btn('%')"
+                                class="bg-orange-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">%</button>
+                            <button @click="btn('+')"
+                                class="bg-amber-700 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">+</button>
+                        </div>
+                        <div class=" flex justify-between">
+                            <button @click="num('7')"
+                                class="bg-amber-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">7</button>
+                            <button @click="num('8')"
+                                class="bg-amber-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">8</button>
+                            <button @click="num('9')"
+                                class="bg-amber-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">9</button>
+                            <button @click="btn('-')"
+                                class="bg-amber-700 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">-</button>
+                        </div>
+                        <div class="flex justify-between">
+                            <button @click="num('4')"
+                                class="bg-amber-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">4</button>
+                            <button @click="num('5')"
+                                class="bg-amber-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">5</button>
+                            <button @click="num('6')"
+                                class="bg-amber-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">6</button>
+                            <button @click="btn('*')"
+                                class="bg-amber-700 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">*</button>
+                        </div>
+                        <div class="flex justify-between">
+                            <button @click="num('3')"
+                                class="bg-amber-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">3</button>
+                            <button @click="num('2')"
+                                class="bg-amber-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">2</button>
+                            <button @click="num('1')"
+                                class="bg-amber-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">1</button>
+                            <button @click="btn('/')"
+                                class="bg-amber-700 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">/</button>
+                        </div>
+                        <div class="flex justify-between">
+                            <button @click="num('0')"
+                                class="bg-amber-500 py-2 h-15 w-35 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">0</button>
+                            <button @click="btn('.')"
+                                class="bg-amber-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">.</button>
+                            <button @click="equal()"
+                                class="bg-orange-500 py-2 h-15 w-16 mt-5 rounded-lg text-md border-2 border-gray-800 cursor-pointer hover:bg-amber-700/50">=</button>
+                        </div>
+
                     </div>
 
                 </div>
 
             </div>
-
         </div>
     </div>
 
